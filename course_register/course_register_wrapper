@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ $# != 2 ]; then
+  echo "You must supply your Minerva Username and Password, which must be the same as your McGill email and password. "
+  exit 1
+fi
+
+(crontab -l ; echo "*/15 * * * * python ~/course_register/course_register.py $1 $2") | crontab
