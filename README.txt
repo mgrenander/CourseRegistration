@@ -1,7 +1,14 @@
-An easy-to-use script that logs in to McGill's Minerva service and registers for courses.
-Note that the script is currently hard-coded to register for the two courses I am interested in, but I am working to generalize the script.
 
-Note also that the script is built for a cron job, set at a 15 minute interval.
-If you wish to use the script with cron job, you must change the username and password fields to your own McGill email and password (lines 79 and 80)
-If you do not wish to use the script with cron job, please keep in mind that the script will only send a failure email every other day between noon and quater past noon.
-To change that, remove line 74 (and fix the resulting indentation errors).
+An easy-to-use script that logs in to McGill's Minerva service and registers for courses.
+You need to go into the python script and change lines 38 - 41. These need to change to reflect the POST request that is sent when you attempt to register.
+Then go to lines 107 - 108 and change the function calls to the specific courses you are looking to register in.
+
+To start the script running, download the repository on a Linux server that has cron jobs enabled. Use the following line to give permission to the course_register_wrapper script to execute:
+
+chmod 744 course_register_wrapper
+
+To start the script, use the following:
+./course_register_wrapper <McGill email> <password>
+
+And voilà, the cron job will run the Python script every 15 minutes. If it is successful, it will send an email notifying you. If it is unsuccessful, every two days it will
+send a single email notifying you that it is still running and waiting for an open spot.
