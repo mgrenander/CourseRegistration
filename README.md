@@ -16,4 +16,4 @@ To start the script, use the following:
 ./course_register_wrapper *<McGill email>* *<password>*
 ``
 
-And voilà, the cron job will run the Python script every 15 minutes. If it is successful, it will send an email notifying you. If it is unsuccessful, every two days it will send a single email notifying you that it is still running and waiting for an open spot.
+Then the cron job will run the Python script every 15 minutes. If it is successful, it will send an email notifying you. If it is unsuccessful, every two days it will send a single email notifying you that it is still running and waiting for an open spot.
